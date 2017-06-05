@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import static android.R.attr.value;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -106,12 +107,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public String createOrderSummary(int number, boolean whippeadCream, boolean chocolate, String name) {
 
-        String orderSummary = "Name: " + name;
-        orderSummary += "\nAdd whipped cream? " + whippeadCream;
-        orderSummary += "\nAdd chocolate? " + chocolate;
-        orderSummary += "\nQuantity: " + getQuantity();
-        orderSummary += "\nTotal $: " + number;
-        orderSummary += "\nThank you!";
+        String orderSummary = getString(R.string.order_summary_name, name);
+        orderSummary += "\n" + getString(R.string.order_summary_whipped_cream, whippeadCream);
+        orderSummary += "\n"+ getString(R.string.order_summary_chocolate, chocolate);
+        orderSummary += "\n" + getString(R.string.order_summary_quantity, getQuantity());
+        orderSummary += "\n" + getString(R.string.order_summary_price, number);
+        orderSummary += "\n" + getString(R.string.thank_you);
         return orderSummary;
     }
 
